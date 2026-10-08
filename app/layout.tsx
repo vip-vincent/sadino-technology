@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-
-// Plus Jakarta Sans — lebih premium dari Poppins (sesuai DESIGN.md)
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-jakarta",
-  display: "swap",
-  preload: true,
-});
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Sadino Technology",
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
   description:
     "Software house specializing in web development, UI/UX design, and scalable backend solutions.",
@@ -39,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full`}>
+    <html lang="en" className="h-full">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -47,9 +37,16 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#f7f9fb] text-gray-900 antialiased font-[var(--font-jakarta)]">
+      <body
+        className="min-h-screen flex flex-col bg-[#f7f9fb] text-gray-900 antialiased"
+        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+      >
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
